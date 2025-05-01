@@ -18,7 +18,7 @@ LIMIT 20;
 SELECT
     si.name AS station_name,
     si.capacity,
-    COUNT(*) AS rush_hour_trips,
+    COUNT(trip_id) AS rush_hour_trips,
     COUNTIF(EXTRACT(HOUR FROM t.start_date) BETWEEN 7 AND 9) AS morning_trips,
     COUNTIF(EXTRACT(HOUR FROM t.start_date) BETWEEN 16 AND 18) AS evening_trips
 FROM
