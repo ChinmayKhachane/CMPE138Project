@@ -10,7 +10,7 @@ GROUP BY subscriber_type;
 -- Query 2 (Unoptimized): Finding the most popular start station per region
 WITH trip_counts AS (
   SELECT start_station_id, start_station_name,
-  COUNT(*) AS trip_count FROM `bigquery-public-data.san_francisco_bikeshare.bikeshare_trips`
+  COUNT(trip_id) AS trip_count FROM `bigquery-public-data.san_francisco_bikeshare.bikeshare_trips`
   GROUP BY start_station_id, start_station_name
 ),
 region_stations AS (
